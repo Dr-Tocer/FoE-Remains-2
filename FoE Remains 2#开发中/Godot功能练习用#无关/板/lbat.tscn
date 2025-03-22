@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfu7gt0xvsfk8"]
+
+[ext_resource type="Script" uid="uid://b430io5cuith3" path="res://Godot功能练习用#无关/板/lbat.gd" id="1_f816i"]
+[ext_resource type="Texture2D" uid="uid://c5xia4ayn0qd1" path="res://素材/板.png" id="2_7cob7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxvh0"]
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(9, 540)
+script = ExtResource("1_f816i")
+
+[node name="左板" type="Sprite2D" parent="."]
+position = Vector2(-3, 2)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7cob7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.8, 8.2)
+shape = SubResource("RectangleShape2D_fxvh0")

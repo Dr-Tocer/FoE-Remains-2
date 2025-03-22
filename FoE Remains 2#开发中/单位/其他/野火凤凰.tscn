@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cerndi7djaqup"]
+
+[ext_resource type="SpriteFrames" uid="uid://b3ejkn3x7od2t" path="res://动画/野火凤凰.tres" id="1_fm68b"]
+
+[node name="野火凤凰" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(270, 131)
+scale = Vector2(0.194215, 0.194215)
+sprite_frames = ExtResource("1_fm68b")
+animation = &"飞行"
+frame_progress = 0.653511
