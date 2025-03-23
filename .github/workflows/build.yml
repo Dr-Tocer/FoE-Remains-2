@@ -32,11 +32,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Godot templates
-      run: |
-        sudo mkdir -p ~/.local/share/godot/export_templates
-        sudo mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
-
     - name: Export project
       uses: abarichello/godot-ci@4.4-stable
       env:
