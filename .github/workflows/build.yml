@@ -38,7 +38,7 @@ jobs:
         mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
 
     - name: Export project
-      uses: abarichello/godot-ci@latest
+      uses: abarichello/godot-ci@4.4-stable
       env:
         KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
         KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
