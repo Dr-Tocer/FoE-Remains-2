@@ -38,13 +38,13 @@ jobs:
         mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
 
     - name: Export project
-      uses: barichello/godot-ci@latest
+      uses: barichello/godot-ci@4.4-stable
       env:
         KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
         KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
         KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       with:
-        godot_version: "4.2.1"
+        godot_version: "4.4"
         preset: ${{ matrix.preset }}
         export_debug: false
         project_parh: ./src/project.godot
