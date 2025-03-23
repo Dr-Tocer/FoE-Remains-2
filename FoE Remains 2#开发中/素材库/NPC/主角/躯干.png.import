@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j8o1oqi4f2pg"
-path="res://.godot/imported/躯干.png-7f1afbb7b257f8ca7e42b6e6f38df59a.ctex"
+path="res://.godot/imported/躯干.png-8befb5d562c42a645a7f3349b68e1cc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/躯干.png"
-dest_files=["res://.godot/imported/躯干.png-7f1afbb7b257f8ca7e42b6e6f38df59a.ctex"]
+source_file="res://素材库/NPC/主角/躯干.png"
+dest_files=["res://.godot/imported/躯干.png-8befb5d562c42a645a7f3349b68e1cc1.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbd8k5qxd5ldc"
-path="res://.godot/imported/鬓毛，跑动0003.png-e1f6ae6699d916b87a7617429eaf34ee.ctex"
+path="res://.godot/imported/鬓毛，跑动0003.png-f08125df810a86797d30e2a55d14b7ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/鬓毛，跑动0003.png"
-dest_files=["res://.godot/imported/鬓毛，跑动0003.png-e1f6ae6699d916b87a7617429eaf34ee.ctex"]
+source_file="res://素材库/NPC/主角/鬓毛，跑动0003.png"
+dest_files=["res://.godot/imported/鬓毛，跑动0003.png-f08125df810a86797d30e2a55d14b7ba.ctex"]
 
 [params]
 

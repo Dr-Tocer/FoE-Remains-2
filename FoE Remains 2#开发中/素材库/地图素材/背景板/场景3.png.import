@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6dg4p7jr3gpn"
-path="res://.godot/imported/场景3.png-06626cdd9408571ffd4a8e4e8b5328c8.ctex"
+path="res://.godot/imported/场景3.png-33b4e36f51c646f2595409a4ca55b360.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/场景3.png"
-dest_files=["res://.godot/imported/场景3.png-06626cdd9408571ffd4a8e4e8b5328c8.ctex"]
+source_file="res://素材库/地图素材/背景板/场景3.png"
+dest_files=["res://.godot/imported/场景3.png-33b4e36f51c646f2595409a4ca55b360.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt6ewgriteplw"
-path="res://.godot/imported/小皮完整组件0010.png-60d15c1d79928fef344b891ee715abd8.ctex"
+path="res://.godot/imported/小皮完整组件0010.png-a1e2f3c58585ae7d103ec101e1f59f78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/小皮完整组件0010.png"
-dest_files=["res://.godot/imported/小皮完整组件0010.png-60d15c1d79928fef344b891ee715abd8.ctex"]
+source_file="res://素材库/NPC/主角/小皮完整组件0010.png"
+dest_files=["res://.godot/imported/小皮完整组件0010.png-a1e2f3c58585ae7d103ec101e1f59f78.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqpo3i6f7hqya"
-path="res://.godot/imported/长角.png-a0648776c1fe35b4a3aa0c1bfe71735a.ctex"
+path="res://.godot/imported/长角.png-e78f660deed15214a8131ffe602c5710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/长角.png"
-dest_files=["res://.godot/imported/长角.png-a0648776c1fe35b4a3aa0c1bfe71735a.ctex"]
+source_file="res://素材库/NPC/主角/长角.png"
+dest_files=["res://.godot/imported/长角.png-e78f660deed15214a8131ffe602c5710.ctex"]
 
 [params]
 

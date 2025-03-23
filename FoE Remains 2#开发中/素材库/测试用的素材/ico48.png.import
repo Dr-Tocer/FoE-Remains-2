@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gc63cr0rw3xl"
-path="res://.godot/imported/ico48.png-1bbf53ce45dc1595852c83e601f94a4d.ctex"
+path="res://.godot/imported/ico48.png-5acd360a8fc519addaedd6e4ba704603.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/ico48.png"
-dest_files=["res://.godot/imported/ico48.png-1bbf53ce45dc1595852c83e601f94a4d.ctex"]
+source_file="res://素材库/测试用的素材/ico48.png"
+dest_files=["res://.godot/imported/ico48.png-5acd360a8fc519addaedd6e4ba704603.ctex"]
 
 [params]
 

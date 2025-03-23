@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://l7t3git4aj1r"
-path="res://.godot/imported/坎特洛特.png-6519d976f62d7050ec1bdd6e97b1733f.ctex"
+path="res://.godot/imported/坎特洛特.png-ce7029294370a916053fb1dedc960fd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/坎特洛特.png"
-dest_files=["res://.godot/imported/坎特洛特.png-6519d976f62d7050ec1bdd6e97b1733f.ctex"]
+source_file="res://素材库/地图素材/背景板/坎特洛特.png"
+dest_files=["res://.godot/imported/坎特洛特.png-ce7029294370a916053fb1dedc960fd5.ctex"]
 
 [params]
 

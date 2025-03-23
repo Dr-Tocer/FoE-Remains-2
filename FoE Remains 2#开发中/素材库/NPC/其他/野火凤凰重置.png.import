@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1nxwdg60xxow"
-path="res://.godot/imported/野火凤凰重置.png-cb6fd301fe52e0d696ba1d6edef7f207.ctex"
+path="res://.godot/imported/野火凤凰重置.png-160a1e13063ad366b3e97b22c124b5df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/野火凤凰重置.png"
-dest_files=["res://.godot/imported/野火凤凰重置.png-cb6fd301fe52e0d696ba1d6edef7f207.ctex"]
+source_file="res://素材库/NPC/其他/野火凤凰重置.png"
+dest_files=["res://.godot/imported/野火凤凰重置.png-160a1e13063ad366b3e97b22c124b5df.ctex"]
 
 [params]
 

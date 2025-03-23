@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1mu1gu52g5at"
-path="res://.godot/imported/关节1.png-c54faf402c657ffae850d2a0c6d126c6.ctex"
+path="res://.godot/imported/关节1.png-2e57a2a76dae19ee974af76498dd1eec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/关节1.png"
-dest_files=["res://.godot/imported/关节1.png-c54faf402c657ffae850d2a0c6d126c6.ctex"]
+source_file="res://素材库/NPC/主角/关节1.png"
+dest_files=["res://.godot/imported/关节1.png-2e57a2a76dae19ee974af76498dd1eec.ctex"]
 
 [params]
 

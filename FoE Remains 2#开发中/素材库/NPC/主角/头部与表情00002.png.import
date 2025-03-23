@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c75ppj8cvbuj1"
-path="res://.godot/imported/头部与表情00002.png-f59dd0dc8dd86065a758f44d7136bbe1.ctex"
+path="res://.godot/imported/头部与表情00002.png-2f164610955999e90504b8c69a1b77ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/头部与表情00002.png"
-dest_files=["res://.godot/imported/头部与表情00002.png-f59dd0dc8dd86065a758f44d7136bbe1.ctex"]
+source_file="res://素材库/NPC/主角/头部与表情00002.png"
+dest_files=["res://.godot/imported/头部与表情00002.png-2f164610955999e90504b8c69a1b77ff.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dby3abat4ahtu"
-path="res://.godot/imported/眼眶0003.png-8bdbd6e84e8d9f3d349b2fab7475f3e5.ctex"
+path="res://.godot/imported/眼眶0003.png-affeaacc3867bb64d12e9ea8fe1faac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/眼眶0003.png"
-dest_files=["res://.godot/imported/眼眶0003.png-8bdbd6e84e8d9f3d349b2fab7475f3e5.ctex"]
+source_file="res://素材库/NPC/主角/眼眶0003.png"
+dest_files=["res://.godot/imported/眼眶0003.png-affeaacc3867bb64d12e9ea8fe1faac0.ctex"]
 
 [params]
 

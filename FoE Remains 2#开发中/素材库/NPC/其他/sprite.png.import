@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b80c3qpwf5k21"
-path="res://.godot/imported/鬓毛，跑动0001.png-239f2d4bb59effc4939130b503920ecd.ctex"
+uid="uid://21b0ckibepxl"
+path="res://.godot/imported/sprite.png-08dae9cdc5362ecc170ef69cf55c890a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/NPC/主角/鬓毛，跑动0001.png"
-dest_files=["res://.godot/imported/鬓毛，跑动0001.png-239f2d4bb59effc4939130b503920ecd.ctex"]
+source_file="res://素材库/NPC/其他/sprite.png"
+dest_files=["res://.godot/imported/sprite.png-08dae9cdc5362ecc170ef69cf55c890a.ctex"]
 
 [params]
 

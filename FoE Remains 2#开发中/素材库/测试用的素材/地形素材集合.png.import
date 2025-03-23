@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn6s2wu8y6gtp"
-path="res://.godot/imported/地形素材集合.png-076fe7908c4967565bb0fe8ad4050a6b.ctex"
+path="res://.godot/imported/地形素材集合.png-bddae4e02d574b212dc7620f5099ea89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材库/地形素材集合.png"
-dest_files=["res://.godot/imported/地形素材集合.png-076fe7908c4967565bb0fe8ad4050a6b.ctex"]
+source_file="res://素材库/测试用的素材/地形素材集合.png"
+dest_files=["res://.godot/imported/地形素材集合.png-bddae4e02d574b212dc7620f5099ea89.ctex"]
 
 [params]
 
