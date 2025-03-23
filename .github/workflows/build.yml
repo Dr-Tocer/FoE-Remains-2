@@ -1,8 +1,8 @@
 name: Build Godot Project
 
 on:
-  push: {main}
-  pull_request: {main}
+  push: [main]
+  pull_request: [main]
 
 jobs:
   Godot:
@@ -16,7 +16,7 @@ jobs:
           lfs: true
       - name: Build
         id: build
-        uses: manleydev/build-godot-action@v1.4.1
+        uses: manleydev/build-godot-action@v1.5
         with:
           name: example
           preset: ${{ matrix.platform }}
