@@ -1,28 +1,75 @@
-name: Build Godot Project
+name: Godot CI
 
 on:
-  push: [main]
-  pull_request: [main]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  Godot:
-    runs-on: ubuntu-latest
+  build:
+    name: Build (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        platform: [linux, windows, mac]
+        include:
+          - platform: linux
+            os: ubuntu-22.04
+            godot_exec: Godot_v4.2.1-stable_linux.x86_64
+            export_preset: "Linux/X11"
+            artifact_name: game_linux
+            
+          - platform: windows
+            os: windows-latest
+            godot_exec: Godot_v4.2.1-stable_win64.exe
+            export_preset: "Windows Desktop"
+            artifact_name: game_windows
+            
+          - platform: macos
+            os: macos-12
+            godot_exec: Godot.app
+            export_preset: "Mac OSX"
+            artifact_name: game_macos
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.5
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Setup Godot Engine
+      run: |
+        # 下载指定版本的 Godot 引擎
+        if [ "${{ matrix.platform }}" == "linux" ]; then
+          wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
+          unzip Godot_v4.2.1-stable_linux.x86_64.zip
+          chmod +x Godot_v4.2.1-stable_linux.x86_64
+        elif [ "${{ matrix.platform }}" == "windows" ]; then
+          curl -Lo godot.zip https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_win64.exe.zip
+          unzip godot.zip
+        elif [ "${{ matrix.platform }}" == "macos" ]; then
+          wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_macos.universal.zip
+          unzip Godot_v4.2.1-stable_macos.universal.zip
+        fi
+
+    - name: Export Project
+      run: |
+        # Linux/macOS
+        if [ "${{ matrix.platform }}" != "windows" ]; then
+          ./${{ matrix.godot_exec }} --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name }}
+        
+        # Windows
+        else
+          ./Godot_v4.2.1-stable_win64.exe --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name}}.exe
+        fi
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.artifact_name }}
+        path: export/
+        retention-days: 7
+
+    - name: Cleanup
+      if: always()
+      run: rm -rf Godot* export/
