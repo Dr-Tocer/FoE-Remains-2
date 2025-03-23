@@ -34,8 +34,8 @@ jobs:
 
     - name: Setup Godot templates
       run: |
-        mkdir -p ~/.local/share/godot/export_templates
-        mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
+        sudo mkdir -p ~/.local/share/godot/export_templates
+        sudo mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
 
     - name: Export project
       uses: abarichello/godot-ci@4.4-stable
