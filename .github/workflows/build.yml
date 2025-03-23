@@ -1,87 +1,70 @@
-name: Godot CI
+name: Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  build:
-    name: Build (${{ matrix.platform }})
-    runs-on: ${{ matrix.os }}
+  exports:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - platform: linux
-            os: ubuntu-22.04
-            godot_exec: Godot_v4.2.1-stable_linux.x86_64
-            export_preset: "Linux/X11"
-            artifact_name: game_linux
-            
-          - platform: windows
-            os: windows-latest
-            godot_exec: Godot_v4.2.1-stable_win64.exe
-            export_preset: "Windows Desktop"
-            artifact_name: game_windows
-            
-          - platform: macos
-            os: macos-12
-            godot_exec: Godot.app
-            export_preset: "Mac OSX"
-            artifact_name: game_macos
+          - preset: "Web"
+            platform: html5
+            artifact_name: web-build
+          - preset: "Windows Desktop"
+            platform: windows
+            artifact_name: windows-build
+          - preset: "Linux/X11"
+            platform: linux
+            artifact_name: linux-build
+          - preset: "MacOS"
+            platform: macos
+            artifact_name: macos-build
+          - preset: "Android"
+            platform: android
+            artifact_name: android-build
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Setup Godot templates
+      run: |
+        mkdir -p ~/.local/share/godot/export_templates
+        mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
+
+    - name: Export project
+      uses: barichello/godot-ci@latest
+      env:
+        KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
+        KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       with:
-        lfs: true
+        godot_version: "4.2.1"
+        preset: ${{ matrix.preset }}
+        export_debug: false
+        project_parh: ./src/project.godot
+        output_path: ./builds/${{ matrix.platform }}
 
-    - name: Setup Godot Engine
-      shell: bash
-      if: matrix.platform != 'windows'
-      run: |
-        if [ "${{ matrix.platform }}" == "linux" ]; then
-          wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
-          unzip Godot_v4.2.1-stable_linux.x86_64.zip
-          chmod +x Godot_v4.2.1-stable_linux.x86_64
-        elif [ "${{ matrix.platform }}" == "macos" ]; then
-          wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_macos.universal.zip
-          unzip Godot_v4.2.1-stable_macos.universal.zip
-        fi
-
-    - name: Setup Godot (Windows)
-      if: matrix.platform == 'windows'
-      shell: pwsh
-      run: |
-        $url = "https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_win64.exe.zip"
-        Invoke-WebRequest -Uri $url -OutFile "godot.zip"
-        Expand-Archive -Path "godot.zip" -DestinationPath .
-        Rename-Item -Path "Godot_v4.2.1-stable_win64.exe" -NewName "godot.exe"
-
-    - name: Export Project
-      if: matrix.platform != 'windows'
-      shell: bash
-      run: |
-        ./${{ matrix.godot_exec }} --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name }}
-
-    - name: Export Project (Windows)
-      if: matrix.platform == 'windows'
-      shell: pwsh
-      run: |
-        .\godot.exe --headless --export-release "${{ matrix.export_preset }}" "export\${{ matrix.artifact_name }}.exe"
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
       with:
-        name: ${{ matrix.artifact_name }}
-        path: export/
+        name: ${{ matrix.artifact_name }}-${{ github.run_id }}
+        path: ./builds/${{ matrix.platform }}/*
         retention-days: 7
 
-    - name: Cleanup
-      if: always()
-      shell: bash
-      run: rm -rf Godot* export/
-      # Windows 清理命令
-      shell: pwsh
-      run: Remove-Item -Recurse -Force Godot*, export/
+  deploy:
+    needs: exports
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ./all-artifacts
+
+    - name: List artifacts
+      run: ls -R ./all-artifacts
