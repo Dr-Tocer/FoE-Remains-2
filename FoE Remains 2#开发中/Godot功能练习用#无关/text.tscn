@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=3 uid="uid://ypxqf08s2qdj"]
+
+[ext_resource type="Texture2D" uid="uid://cpxv6jffca5sm" path="res://素材/线.png" id="1_0gh4m"]
+[ext_resource type="Script" uid="uid://pg1x3y1mdhsb" path="res://Godot功能练习用#无关/Main.gd" id="1_f6u2x"]
+[ext_resource type="PackedScene" uid="uid://cryyt0gu458qy" path="res://Godot功能练习用#无关/球/球.tscn" id="3_bix46"]
+[ext_resource type="Script" uid="uid://bhxvhp6h3mvc7" path="res://Godot功能练习用#无关/板/左墙.gd" id="4_y1371"]
+[ext_resource type="Script" uid="uid://c6wq5vh7i8hb0" path="res://Godot功能练习用#无关/板/右墙.gd" id="5_a2ulg"]
+[ext_resource type="Script" uid="uid://ow43cwvsmdc3" path="res://Godot功能练习用#无关/板/上墙.gd" id="6_hrpe8"]
+[ext_resource type="Script" uid="uid://dci765bjgcjlq" path="res://Godot功能练习用#无关/板/下墙.gd" id="7_d27xn"]
+[ext_resource type="PackedScene" uid="uid://cfu7gt0xvsfk8" path="res://Godot功能练习用#无关/板/lbat.tscn" id="8_d27xn"]
+[ext_resource type="PackedScene" uid="uid://c4cjkn3fcl3ca" path="res://Godot功能练习用#无关/板/rbat.tscn" id="9_8md2h"]
+[ext_resource type="Script" uid="uid://ic11f4j03hgq" path="res://Godot功能练习用#无关/记分/记分.gd" id="10_8md2h"]
+[ext_resource type="Script" uid="uid://do5esi6mrnu2q" path="res://Godot功能练习用#无关/记分/提示.gd" id="11_8yy5q"]
+[ext_resource type="Script" uid="uid://bhv3f1ixcwuvf" path="res://Godot功能练习用#无关/记分/最高分.gd" id="12_x7cnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1371"]
+size = Vector2(20, 1203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8md2h"]
+size = Vector2(1970, 20)
+
+[node name="Text" type="Node"]
+script = ExtResource("1_f6u2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(910, 510)
+rotation = 1.5708
+texture = ExtResource("1_0gh4m")
+
+[node name="球" parent="." instance=ExtResource("3_bix46")]
+
+[node name="左墙" type="Area2D" parent="."]
+script = ExtResource("4_y1371")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="左墙"]
+position = Vector2(-100, 540)
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_y1371")
+
+[node name="右墙" type="Area2D" parent="."]
+position = Vector2(1920, 0)
+script = ExtResource("5_a2ulg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="右墙"]
+position = Vector2(100, 540)
+scale = Vector2(10, 1)
+shape = SubResource("RectangleShape2D_y1371")
+
+[node name="上墙" type="Area2D" parent="."]
+script = ExtResource("6_hrpe8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="上墙"]
+position = Vector2(975, -100)
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_8md2h")
+
+[node name="下墙" type="Area2D" parent="."]
+position = Vector2(0, 1080)
+script = ExtResource("7_d27xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="下墙"]
+position = Vector2(975, 100)
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_8md2h")
+
+[node name="Area2D" parent="." instance=ExtResource("8_d27xn")]
+
+[node name="Area2D2" parent="." instance=ExtResource("9_8md2h")]
+
+[node name="记分" type="Label" parent="."]
+offset_left = 2.0
+offset_top = -7.0
+offset_right = 1922.0
+offset_bottom = 1084.0
+theme_override_font_sizes/font_size = 800
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_8md2h")
+
+[node name="提示" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 71.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 50
+script = ExtResource("11_8yy5q")
+
+[node name="最高分" type="Label" parent="."]
+offset_left = 1355.0
+offset_top = 7.0
+offset_right = 1395.0
+offset_bottom = 144.0
+theme_override_font_sizes/font_size = 100
+script = ExtResource("12_x7cnp")

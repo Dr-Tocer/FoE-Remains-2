@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cryyt0gu458qy"]
+
+[ext_resource type="Script" uid="uid://bp7mi716bw3gm" path="res://Godot功能练习用#无关/球/球.gd" id="1_snob2"]
+[ext_resource type="Texture2D" uid="uid://bxa5rgvjru435" path="res://素材/球.png" id="2_nedhf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iayqp"]
+radius = 8.0
+
+[node name="球" type="Area2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_snob2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -1)
+scale = Vector2(0.0457031, 0.0457031)
+texture = ExtResource("2_nedhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iayqp")
