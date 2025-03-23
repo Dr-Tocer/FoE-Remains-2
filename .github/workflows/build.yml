@@ -38,30 +38,38 @@ jobs:
         lfs: true
 
     - name: Setup Godot Engine
+      shell: bash
+      if: matrix.platform != 'windows'
       run: |
-        # 下载指定版本的 Godot 引擎
         if [ "${{ matrix.platform }}" == "linux" ]; then
           wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_linux.x86_64.zip
           unzip Godot_v4.2.1-stable_linux.x86_64.zip
           chmod +x Godot_v4.2.1-stable_linux.x86_64
-        elif [ "${{ matrix.platform }}" == "windows" ]; then
-          curl -Lo godot.zip https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_win64.exe.zip
-          unzip godot.zip
         elif [ "${{ matrix.platform }}" == "macos" ]; then
           wget https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_macos.universal.zip
           unzip Godot_v4.2.1-stable_macos.universal.zip
         fi
 
-    - name: Export Project
+    - name: Setup Godot (Windows)
+      if: matrix.platform == 'windows'
+      shell: pwsh
       run: |
-        # Linux/macOS
-        if [ "${{ matrix.platform }}" != "windows" ]; then
-          ./${{ matrix.godot_exec }} --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name }}
-        
-        # Windows
-        else
-          ./Godot_v4.2.1-stable_win64.exe --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name}}.exe
-        fi
+        $url = "https://downloads.tuxfamily.org/godotengine/4.2.1/Godot_v4.2.1-stable_win64.exe.zip"
+        Invoke-WebRequest -Uri $url -OutFile "godot.zip"
+        Expand-Archive -Path "godot.zip" -DestinationPath .
+        Rename-Item -Path "Godot_v4.2.1-stable_win64.exe" -NewName "godot.exe"
+
+    - name: Export Project
+      if: matrix.platform != 'windows'
+      shell: bash
+      run: |
+        ./${{ matrix.godot_exec }} --headless --export-release "${{ matrix.export_preset }}" export/${{ matrix.artifact_name }}
+
+    - name: Export Project (Windows)
+      if: matrix.platform == 'windows'
+      shell: pwsh
+      run: |
+        .\godot.exe --headless --export-release "${{ matrix.export_preset }}" "export\${{ matrix.artifact_name }}.exe"
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
@@ -72,4 +80,8 @@ jobs:
 
     - name: Cleanup
       if: always()
+      shell: bash
       run: rm -rf Godot* export/
+      # Windows 清理命令
+      shell: pwsh
+      run: Remove-Item -Recurse -Force Godot*, export/
