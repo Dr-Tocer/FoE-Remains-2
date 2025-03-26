@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdf5rqel4p35q"]
-
-[ext_resource type="Script" uid="uid://nw7eoe4f6kev" path="res://Godot功能练习用#无关/测试脚本.gd" id="1_e4x70"]
-
-[node name="测试节点" type="Node2D"]
-script = ExtResource("1_e4x70")
