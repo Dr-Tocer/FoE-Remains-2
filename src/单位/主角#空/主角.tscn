@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://degxuuhm2om7h" path="res://素材库/小皮默认素材/眼球高光.png" id="4_p11mu"]
 [ext_resource type="Texture2D" uid="uid://brulynwjeh2m4" path="res://素材库/小皮默认素材/睫毛.png" id="5_nw6b7"]
 [ext_resource type="Texture2D" uid="uid://bxma4o3t4b5sf" path="res://素材库/小皮默认素材/鬓毛.png" id="6_qvr2a"]
-[ext_resource type="Texture2D" uid="uid://cnceqb21boor6" path="res://素材库/小皮默认素材/头部组件0002.png" id="7_qg0fi"]
+[ext_resource type="Texture2D" uid="uid://cnceqb21boor6" path="res://素材库/小皮默认素材/耳朵.png" id="7_qg0fi"]
 [ext_resource type="Texture2D" uid="uid://cdocf8i2nrtdc" path="res://素材库/小皮默认素材/头发.png" id="8_hj114"]
 [ext_resource type="Texture2D" uid="uid://cytn1pqv3bkhd" path="res://素材库/小皮默认素材/角.png" id="9_fxuxm"]
 [ext_resource type="Script" uid="uid://5jafal6r0bnp" path="res://单位/主角#空/移动系统的碰撞箱.gd" id="10_40d7q"]
@@ -16830,7 +16830,7 @@ shape = SubResource("RectangleShape2D_pp7wl")
 
 [node name="移动系统的碰撞箱" type="CollisionPolygon2D" parent="Player"]
 position = Vector2(104, 100)
-polygon = PackedVector2Array(-64, 0, -45.1765, 37.6471, -45.1765, 88.2353, 41.8823, 88.2353, 32.4706, 7.05882, 61.8823, -45.8824, 61.8823, -91.7647, 7.7647, -91.7647)
+polygon = PackedVector2Array(-64, 0, -45.1765, 37.6471, -45.1765, 88.2353, 45.1765, 88.2353, 45.1765, -17.6471, 60.4706, -34.1177, 45.1765, -81.1765, 45.1765, -91.7647, 7.7647, -91.7647)
 script = ExtResource("10_40d7q")
 
 [node name="头" type="Polygon2D" parent="Player"]
