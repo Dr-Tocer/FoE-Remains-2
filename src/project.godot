@@ -20,7 +20,7 @@ config/icon="uid://bxwqdgl8pa0o1"
 
 Count="*res://Godot功能练习用#无关/记分/积分.gd"
 zdxt="*res://功能#空/子弹系统.gd"
-Utils="res://script/util/utils.gd"
+Utils="*res://script/util/utils.gd"
 
 [display]
 
