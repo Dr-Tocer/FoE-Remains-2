@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1sx7lo3oqed3" path="res://素材库/地图素材/背景板/场景6.png" id="1_3vkds"]
 [ext_resource type="Script" uid="uid://xwb0kvm3xsq3" path="res://主场景/功能测试用场景主脚本.gd" id="1_5jxxr"]
 [ext_resource type="TileSet" uid="uid://lxc3rx4yjhtc" path="res://世界/地形材质资源文件/基本#已弃用.tres" id="2_gnlkj"]
-[ext_resource type="PackedScene" uid="uid://ddnwtvsbkp85m" path="res://unit/item/AmmoChest.tscn" id="4_8hm34"]
+[ext_resource type="PackedScene" uid="uid://ddnwtvsbkp85m" path="res://unit/item/container.tscn" id="4_8hm34"]
 
 [sub_resource type="Gradient" id="Gradient_bgm4l"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)

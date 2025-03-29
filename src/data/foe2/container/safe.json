@@ -1,4 +1,14 @@
 {
-	"id": "foe2:safe",
-	"locale": "foe2:safe"
+	"id": "foe2:container/safe",
+	"locale": "foe2.container.safe",
+	"mass": 1,
+	"lock_chance": 0.5,
+	"alarm_chance": 0.2,
+	"mine_chance": 0.1,
+	"texture": {
+		"normal": "foe2:container/safe",
+		"open": "foe2:container/safe_open"
+	},
+	"loot_table": "foe2:loot_table/safe_common",
+	"deadlocked": false
 }

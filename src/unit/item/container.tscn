@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddnwtvsbkp85m"]
 
-[ext_resource type="Script" uid="uid://cm6rwp0c1opns" path="res://script/entity/object/container/ammo_chest.gd" id="1_4eqns"]
+[ext_resource type="Script" uid="uid://cgdwvjrea6787" path="res://script/entity/object/container.gd" id="1_gcl0j"]
 [ext_resource type="Texture2D" uid="uid://ndj8c2n6i74h" path="res://素材库/实体/物品/ammo_chest/closed.png" id="2_yu5p4"]
 [ext_resource type="Texture2D" uid="uid://b5aby3e5pi43k" path="res://素材库/实体/物品/ammo_chest/open.png" id="3_ursri"]
 
@@ -18,12 +18,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="AmmoChest" type="RigidBody2D"]
-script = ExtResource("1_4eqns")
+[node name="Container" type="Node2D"]
+script = ExtResource("1_gcl0j")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
 polygon = PackedVector2Array(-18, -10, 18, -10, 18, 13, -18, 13)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 sprite_frames = SubResource("SpriteFrames_v7dhn")
 frame_progress = 0.873379
+
+[node name="Label" type="Label" parent="RigidBody2D"]
+offset_left = -18.0
+offset_top = 14.0
+offset_right = 18.0
+offset_bottom = 37.0
+text = "TEST"
