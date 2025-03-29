@@ -1,12 +1,10 @@
-extends Node2D
+class_name FOEMob
+extends FOEEntity
 
+var hp = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player_scene = load("res://unit/player/主角.tscn")
-	var player_instance = player_scene.instantiate()
-	player_instance.position = Vector2(1000, 400)
-	add_child(player_instance)
 	pass # Replace with function body.
 
 

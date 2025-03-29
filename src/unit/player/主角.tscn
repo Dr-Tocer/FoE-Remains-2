@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://ksmydgbmoqn3"]
 
-[ext_resource type="Script" uid="uid://ccrdvrn2yehfc" path="res://单位/主角#空/玩家控制脚本.gd" id="1_fixpp"]
+[ext_resource type="Script" uid="uid://ccrdvrn2yehfc" path="res://unit/player/玩家控制脚本.gd" id="1_fixpp"]
 [ext_resource type="Texture2D" uid="uid://dwylbhj568lc" path="res://素材库/小皮默认素材/眼白.png" id="2_xu3ie"]
 [ext_resource type="Texture2D" uid="uid://blff46igc1hcp" path="res://素材库/小皮默认素材/眼球.png" id="3_3b7ur"]
 [ext_resource type="Texture2D" uid="uid://degxuuhm2om7h" path="res://素材库/小皮默认素材/眼球高光.png" id="4_p11mu"]

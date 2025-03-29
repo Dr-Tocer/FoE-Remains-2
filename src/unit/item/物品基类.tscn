@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwjserbiu8rq4"]
+
+[ext_resource type="Script" uid="uid://cmopr3j3jh5qq" path="res://script/entity/object/container/aid_chest.gd" id="1_q4qp1"]
+
+[node name="物品基类" type="Node2D"]
+script = ExtResource("1_q4qp1")
