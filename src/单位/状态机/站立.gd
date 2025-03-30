@@ -1,5 +1,5 @@
 extends Node
-class_name 匍匐
+class_name 站立
 @onready var entity = get_parent().get_parent() if get_parent() else null
 @onready var 状态机 = get_parent()
 
