@@ -2,8 +2,8 @@ extends Node
 class_name 攀附
 @onready var entity = get_parent().get_parent() if get_parent() else null
 @onready var 状态机 = get_parent()
-var 能否攀附 :bool = false
-
+var 能否向右攀附 :bool = false
+var 能否向左攀附 :bool = false
 func _physics_process(_delta: float) -> void:
 	更新进程()
 	pass
@@ -32,12 +32,16 @@ func 更新进程():
 	pass
 	
 func 玩家进入状态条件():
-	if (entity.get_node("区域检测").右侧 and not entity.get_node("区域检测").右上 and not entity.get_node("区域检测").下方) or (entity.get_node("区域检测").左侧 and not entity.get_node("区域检测").左上 and not entity.get_node("区域检测").下方):
-		能否攀附 = true
+	if (entity.get_node("区域检测").右侧 and not entity.get_node("区域检测").右上 and not entity.get_node("区域检测").下方):
+		能否向右攀附 = true
 	else:
-		能否攀附 = false
+		能否向右攀附 = false
 	pass
-	
+	if (entity.get_node("区域检测").左侧 and not entity.get_node("区域检测").左上 and not entity.get_node("区域检测").下方):
+		能否向左攀附 = true
+	else:
+		能否向左攀附 = false
+	pass
 func NPC进入状态条件():
 	
 	pass

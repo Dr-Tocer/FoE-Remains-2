@@ -18,6 +18,5 @@ func 朝向切换():
 	if Input.is_action_pressed("左摇杆向右"):
 		朝向 = true
 	elif Input.is_action_pressed("左摇杆向左"):
-		#print("成功")
 		朝向 = false
 	pass

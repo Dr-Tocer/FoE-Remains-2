@@ -8,7 +8,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 	
 func 进入状态():
-	
+	entity.实际速度 = entity.奔跑速度
 	pass
 	
 func 退出状态():
@@ -38,7 +38,7 @@ func 更新进程():
 	pass
 	
 func 玩家进入状态条件():
-	if Input.is_action_pressed("左摇杆按压") and (Input.is_action_pressed("左摇杆向左") or Input.is_action_pressed("左摇杆向右")) and entity.is_on_floor():
+	if Input.is_action_pressed("左摇杆按压") and (Input.is_action_pressed("左摇杆向左") or Input.is_action_pressed("左摇杆向右")) and entity.is_on_floor() and not entity.get_node("区域检测").上方区域 :
 		状态机.变更状态 = name
 		pass
 	pass

@@ -8,7 +8,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 	
 func 进入状态():
-	
+	entity.实际速度 = entity.speed
 	pass
 	
 func 退出状态():
