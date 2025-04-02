@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://xu47r4wo15nx"]
+[gd_scene load_steps=50 format=3 uid="uid://xu47r4wo15nx"]
 
 [ext_resource type="Script" uid="uid://ddjnmfxhx6k33" path="res://unit/mob.gd" id="1_t522l"]
 [ext_resource type="Texture2D" uid="uid://dwylbhj568lc" path="res://素材库/小皮默认素材/眼白.png" id="2_sainf"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://cb63gxuf55org" path="res://单位/状态机/攀附.gd" id="25_i01dt"]
 [ext_resource type="Script" uid="uid://64ncvgwklwek" path="res://单位/状态机/匍匐.gd" id="26_h6sh5"]
 [ext_resource type="Script" uid="uid://duu6p8bbw5msf" path="res://unit/摄像机脚本.gd" id="27_b4fqk"]
+[ext_resource type="Texture2D" uid="uid://b1sx7lo3oqed3" path="res://素材库/地图素材/背景板/场景6.png" id="28_t7fb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6wb3"]
 size = Vector2(90, 10)
@@ -12987,6 +12988,13 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.85, 0.85)
+zoom = Vector2(0.75, 0.75)
 script = ExtResource("27_b4fqk")
+
+[node name="临时背景" type="Sprite2D" parent="Camera2D"]
+z_index = -100
+position = Vector2(0, -250)
+scale = Vector2(1.99143, 1.99143)
+texture = ExtResource("28_t7fb3")
 
 [connection signal="timeout" from="Mob/状态机/进入掩体状态计时器" to="Mob/状态机/匍匐" method="_on_进入掩体计时器_timeout"]

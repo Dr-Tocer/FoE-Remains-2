@@ -6,7 +6,7 @@ var G = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var speed:float = 400 #基础移动速度
 @export var 奔跑速度:float = 800
 @export var 匍匐速度:float = 260
-@export var acceleration:float = 50 #移动加速度
+@export var acceleration:float = 40 #移动加速度
 @export var jump_velocity:float = -1000 #跳跃最大速度
 @export var 跳跃蓄力速度:float = 75
 @export var 地面阻力:int = 50
@@ -40,9 +40,9 @@ func 移动系统():
 		elif direction < 0 and is_on_floor():
 			velocity.x = move_toward(velocity.x,-实际速度,acceleration)
 		elif direction > 0 and not is_on_floor():
-			velocity.x = move_toward(velocity.x,实际速度,acceleration/5)
+			velocity.x = move_toward(velocity.x,实际速度,acceleration/2)
 		elif direction < 0 and not is_on_floor():
-			velocity.x = move_toward(velocity.x,-实际速度,acceleration/5)
+			velocity.x = move_toward(velocity.x,-实际速度,acceleration/2)
 	else:
 		if is_on_floor(): #阻力，数值越大越停下约快。
 			velocity.x = move_toward(velocity.x,0,地面阻力)#地面阻力
@@ -113,7 +113,7 @@ func 玩家攀附系统():
 		if Input.is_action_just_pressed("左摇杆向上"):
 			
 			direction = 0
-			if not $"区域检测".右上攀爬四格区域 and $"状态机".朝向:
+			if not $"区域检测".右上攀爬四格区域 and $AnimationPlayer.current_animation == "向右攀附":
 				$"状态机".变更状态 = "待机"
 				攀附状态 = false
 				攀附跳跃 = false
@@ -127,7 +127,7 @@ func 玩家攀附系统():
 					Y = ($"区域检测/右侧区域".get_collision_point().y)/40
 					Y = (Y-1)*40
 				self.global_transform.origin = Vector2(X,Y-60)
-			elif not $"区域检测".左上攀爬四格区域 and not $"状态机".朝向:
+			elif not $"区域检测".左上攀爬四格区域 and $AnimationPlayer.current_animation == "向左攀附":
 				$"状态机".变更状态 = "待机"
 				攀附状态 = false
 				攀附跳跃 = false
@@ -141,7 +141,7 @@ func 玩家攀附系统():
 					Y = ($"区域检测/左侧区域".get_collision_point().y)/40
 					Y = (Y-1)*40
 				self.global_transform.origin = Vector2(X,Y-60)
-			elif not $"区域检测". 右上爬行区 and $"状态机".朝向:
+			elif not $"区域检测". 右上爬行区 and $AnimationPlayer.current_animation == "向右攀附":
 				get_node("匍匐碰撞箱").disabled = false
 				get_node("默认碰撞箱").disabled = true
 				$"状态机".变更状态 = "匍匐"
@@ -157,7 +157,7 @@ func 玩家攀附系统():
 					Y = ($"区域检测/右侧区域".get_collision_point().y)/40
 					Y = (Y-1)*40
 				self.global_transform.origin = Vector2(X,Y-60)
-			elif not $"区域检测". 左上爬行区 and not $"状态机".朝向:
+			elif not $"区域检测". 左上爬行区 and $AnimationPlayer.current_animation == "向左攀附":
 				get_node("匍匐碰撞箱").disabled = false
 				get_node("默认碰撞箱").disabled = true
 				$"状态机".变更状态 = "匍匐"
