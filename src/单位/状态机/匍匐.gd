@@ -46,11 +46,11 @@ func 玩家进入状态条件():
 	if Input.is_action_just_released("B"):
 		if 状态机.get_node("进入掩体状态计时器").time_left > 0:
 			状态机.get_node("进入掩体状态计时器").stop()
-			if 状态机.当前状态 != name :
+			if 状态机.当前状态 != name and entity.get_node("区域检测").下方 == true :
 				状态机.变更状态 = name
 				entity.get_node("匍匐碰撞箱").disabled = false
 				entity.get_node("默认碰撞箱").disabled = true
-			else :
+			elif 状态机.当前状态 == name and entity.get_node("区域检测").上方区域 == false:
 				entity.get_node("匍匐碰撞箱").disabled = true
 				entity.get_node("默认碰撞箱").disabled = false
 				状态机.变更状态 = "待机"
