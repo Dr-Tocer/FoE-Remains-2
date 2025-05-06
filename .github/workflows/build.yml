@@ -1,0 +1,65 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  exports:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - preset: "Web"
+            platform: html5
+            artifact_name: web-build
+          - preset: "Windows Desktop"
+            platform: windows
+            artifact_name: windows-build
+          - preset: "Linux/X11"
+            platform: linux
+            artifact_name: linux-build
+          - preset: "MacOS"
+            platform: macos
+            artifact_name: macos-build
+          - preset: "Android"
+            platform: android
+            artifact_name: android-build
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Export project
+      uses: abarichello/godot-ci@4.4-stable
+      env:
+        KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        KEYSTORE_USER: ${{ secrets.ANDROID_KEYSTORE_USER }}
+        KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      with:
+        godot_version: "4.4"
+        preset: ${{ matrix.preset }}
+        export_debug: false
+        project_parh: ./src/project.godot
+        output_path: ./builds/${{ matrix.platform }}
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.artifact_name }}-${{ github.run_id }}
+        path: ./builds/${{ matrix.platform }}/*
+        retention-days: 7
+
+  deploy:
+    needs: exports
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4.2.1
+      with:
+        path: ./all-artifacts
+
+    - name: List artifacts
+      run: ls -R ./all-artifacts
